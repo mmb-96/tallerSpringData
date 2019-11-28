@@ -16,6 +16,7 @@
 
 package org.springframework.samples.petclinic;
 
+import java.util.Date;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -28,9 +29,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.samples.petclinic.repository.OwnerRepository;
 import org.springframework.samples.petclinic.repository.SpecialityRepository;
 import org.springframework.samples.petclinic.repository.VetRepository;
+import org.springframework.samples.petclinic.repository.VisitRepository;
 import org.springframework.samples.petclinic.model.Owner;
 import org.springframework.samples.petclinic.model.Specialty;
 import org.springframework.samples.petclinic.model.Vet;
+import org.springframework.samples.petclinic.model.Visit;
 
 /**
  * PetClinic Spring Boot Application.
@@ -44,6 +47,8 @@ public class PetClinicApplication {
 	VetRepository vetRepository;
 	@Autowired
 	OwnerRepository ownerRepository;
+	@Autowired
+	VisitRepository visitRepository;
 	
 	private static final Logger log = LoggerFactory.getLogger(PetClinicApplication.class);
 
@@ -121,6 +126,31 @@ public class PetClinicApplication {
 //			}
 			
 			
+			
+//			Visit vis1 = new Visit();
+//			vis1.setDate(new Date());
+//			vis1.setDescription("Prueba 1");
+//			vis1.setPetId(1);
+//			visitRepository.save(vis1);
+//			
+//			Visit vis2 = new Visit();
+//			vis2.setDate(new Date());
+//			vis2.setDescription("Prueba 1");
+//			vis2.setPetId(2);
+//			visitRepository.save(vis2);
+//			
+//			Visit vis3 = new Visit();
+//			vis3.setDate(new Date());
+//			vis3.setDescription("Prueba 1");
+//			vis3.setPetId(3);
+//			visitRepository.save(vis3);
+			
+			
+			List<Visit> visit1 = visitRepository.findTop4ByOrderByDateDesc();
+			
+			for(Visit visit : visit1) {
+				log.info(visit.toString());
+			}
 			
 		};
 	}
