@@ -25,8 +25,11 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.samples.petclinic.repository.OwnerRepository;
 import org.springframework.samples.petclinic.repository.SpecialityRepository;
 import org.springframework.samples.petclinic.repository.VetRepository;
+import org.springframework.samples.petclinic.model.Owner;
+import org.springframework.samples.petclinic.model.Specialty;
 import org.springframework.samples.petclinic.model.Vet;
 
 /**
@@ -39,6 +42,8 @@ import org.springframework.samples.petclinic.model.Vet;
 public class PetClinicApplication {
 	@Autowired
 	VetRepository vetRepository;
+	@Autowired
+	OwnerRepository ownerRepository;
 	
 	private static final Logger log = LoggerFactory.getLogger(PetClinicApplication.class);
 
@@ -52,12 +57,70 @@ public class PetClinicApplication {
 			log.info("*****************************************************");
 			log.info("BOOTCAMP - Spring y Spring Data - vetRepository");
 			log.info("*****************************************************");
-
-			List<Vet> vets = vetRepository.findAll();
 			
-			for(Vet vet : vets) {
-				log.info(vet.toString());
-			}
+			//Ejercicio 1
+//			Vet vetNew = new Vet();
+//			vetNew.setFirstName("Manuel");
+//			vetNew.setLastName("Melero");
+//			vetRepository.save(vetNew);
+//			
+//			Vet manu = vetRepository.findOne(vetNew.getId());
+//			
+//			Specialty speciNew = new Specialty();
+//			speciNew.setId(2);
+//			speciNew.setName("surgery");
+//			
+//			manu.addSpecialty(speciNew);
+//			vetRepository.save(manu);
+//			
+//			log.info(manu.toString());
+//
+//			List<Vet> vets = vetRepository.findAll();
+//			
+//			for(Vet vet : vets) {
+//				log.info(vet.toString());
+//			}
+			
+			//Ejercicio2
+//			List<Vet> vets1 = vetRepository.findByLastName("Melero");
+//			
+//			for(Vet vet : vets1) {
+//				log.info(vet.toString());
+//			}
+//			
+//			List<Vet> vets2 = vetRepository.findByFirstNameAndLastName("Manuel", "Melero");
+//			
+//			for(Vet vet : vets2) {
+//				log.info(vet.toString());
+//			}
+//			
+//			List<Vet> vets3 = vetRepository.findByFirstNameOrLastName("Robert", "Melero");
+//			
+//			for(Vet vet : vets3) {
+//				log.info(vet.toString());
+//			}
+			
+			//Ejercicio3
+//			List<Vet> vets4 = vetRepository.findBySpecialties("radiology");
+//			
+//			for(Vet vet : vets4) {
+//				log.info(vet.toString());
+//			}
+			
+			//Ejercicio4
+//			List<Owner> Owners1 = ownerRepository.findByFirstNameContainsOrLastNameContains("eor", "an");
+//			
+//			for(Owner Owner : Owners1) {
+//				log.info(Owner.toString());
+//			}
+//			
+//			List<Owner> Owners2 = ownerRepository.findByOrderByLastName();
+//			
+//			for(Owner Owner : Owners2) {
+//				log.info(Owner.toString());
+//			}
+			
+			
 			
 		};
 	}
